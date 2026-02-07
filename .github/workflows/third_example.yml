@@ -1,0 +1,14 @@
+name: My third workflow
+
+on: workflow_dispatch
+    
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: welcome message
+          run: echo "my first git hib action job"
+
+        - name: list of files
+          run: ls
