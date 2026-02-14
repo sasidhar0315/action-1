@@ -30,7 +30,7 @@ jobs:
          - name: test file
            run: |
               ls -lrt
-              grep -i "ascii"  ascii_art.txt 
+              grep -i "welcome"  ascii_art.txt 
 
     deploy_job:
            needs: [first_job,test_job]
