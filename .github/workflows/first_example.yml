@@ -20,9 +20,7 @@ jobs:
           run: sudo apt-get install cowsay -y    
 
         - name: generate ascii art
-          run: | 
-            cowsay -f tiger "welcome to github actions" >>  ascii_art.txt
-            cowsay -f lion "sasi is a tiger" >>  ascii_art.txt
+          run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
 
         - name: list of files after ascii
           run: ls -la 
