@@ -12,21 +12,26 @@ jobs:
         - name: checkout code
           uses: actions/checkout@v4
 
-        - name: read and list of files
+        - name: run shell
           run: |
-            ls -lrt
-            cat README.md
-        - name: install ascii
-          run: sudo apt-get install cowsay -y    
+           chmod +x ascii_script.sh
+           ./ascii_script.sh  
 
-        - name: generate ascii art
-          run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
+        # - name: read and list of files
+        #   run: |
+        #     ls -lrt
+        #     cat README.md
+        # - name: install ascii
+        #   run: sudo apt-get install cowsay -y    
 
-        - name: list of files after ascii
-          run: ls -la 
+        # - name: generate ascii art
+        #   run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
 
-        - name: read files
-          run:  cat ascii_art.txt
+        # - name: list of files after ascii
+        #   run: ls -la 
+
+        # - name: read files
+        #   run:  cat ascii_art.txt
           
           
           
