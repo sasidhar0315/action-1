@@ -15,8 +15,14 @@ jobs:
         - name: read and list of files
           run: |
             ls -lrt
-            cat README.md  
+            cat README.md
 
+        - name: generate ascii art
+          run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
+          
+          
+          
+          
         # - name: list of files
         #   run: ls
           
