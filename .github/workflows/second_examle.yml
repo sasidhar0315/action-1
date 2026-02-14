@@ -12,15 +12,20 @@ jobs:
           run: sudo apt-get install cowsay -y
         - name: execute cowsay
           run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
-        - name: sleep
-          run: sleep 30
+        - name: upload file
+          uses: actions/upload-artifact@v3
+          with:
+            name: dragon file
+            path: ascii_art.txt
 
     test_job:
         needs: first_job
         runs-on: ubuntu-latest
         steps:
-         - name: sleep
-           run: sleep 10
+         - name: download file
+           uses: actions/upload-artifact@v3
+           with:
+            name: dragon file
            
          - name: test file
            run: |
@@ -31,7 +36,12 @@ jobs:
            needs: [first_job,test_job]
            runs-on: ubuntu-latest
            steps:
-             - name: read file
-               run: cat ascii_art.txt
+              - name: download file
+                uses: actions/upload-artifact@v3
+                with:
+                 name: dragon file
+
+              - name: read file
+                run: cat ascii_art.txt
 
                    
