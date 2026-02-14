@@ -2,8 +2,6 @@ name: Docker Pipeline
 
 on: 
   workflow_dispatch:
-  schedule:
-     - cron: '*/10 * * * *'
 
 env:
   CONTAINER_REGISTRY: docker.io
