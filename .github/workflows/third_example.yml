@@ -1,0 +1,19 @@
+name: My third workflow
+
+on: push
+    
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: welcome message
+          run: echo "my first git hib action job"
+
+        - name: list of file
+          run: ls
+
+        - name: read and list of files
+          run: |
+            ls -lrt
+            cat README.md  

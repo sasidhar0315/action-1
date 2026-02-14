@@ -1,0 +1,47 @@
+name: My second workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: welcome messages
+          run: echo "my first git hib action job"
+        - name: install cowsay
+          run: sudo apt-get install cowsay -y
+        - name: execute cowsay
+          run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
+        - name: upload file
+          uses: actions/upload-artifact@v4
+          with:
+            name: dragon file
+            path: ascii_art.txt
+
+    test_job:
+        needs: first_job
+        runs-on: ubuntu-latest
+        steps:
+         - name: download file
+           uses: actions/download-artifact@v4
+           with:
+            name: dragon file
+           
+         - name: test file
+           run: |
+              ls -lrt
+              grep -i "welcome"  ascii_art.txt 
+
+    deploy_job:
+           needs: [first_job,test_job]
+           runs-on: ubuntu-latest
+           steps:
+              - name: download file
+                uses: actions/download-artifact@v4
+                with:
+                 name: dragon file
+
+              - name: read file
+                run: cat ascii_art.txt
+
+                   
