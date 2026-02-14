@@ -22,6 +22,9 @@ jobs:
         - name: generate ascii art
           run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
 
+         - name: list of files after ascii
+           run: ls -la 
+
         - name: read files
           run:  cat ascii_art.txt
           
