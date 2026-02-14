@@ -16,6 +16,8 @@ jobs:
           run: |
             ls -lrt
             cat README.md
+        - name: install ascii
+          run: sudo apt-get install cowsay -y    
 
         - name: generate ascii art
           run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
