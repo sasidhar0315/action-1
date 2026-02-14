@@ -8,16 +8,28 @@ jobs:
         steps:
         - name: welcome message
           run: echo "my first git hib action job"
+        - name: install cowsay
+          run: sudo apt-get install cowsay -y
+        - name: execute cowsay
+          run: cowsay -f dragon "welcome to github actions" >>  ascii_art.txt
+        - name: sleep
+          run: sleep 30
 
-        - name: checkout code
-          uses: actions/checkout@v4
+    test_job:
+        runs-on: ubuntu-latest
+        steps:
+         - name: sleep
+           run: sleep 10
+           
+         - name: test file
+           run: |
+              ls -lrt
+              grep -i "ascii"  ascii_art.txt 
 
-        - name: read and list of files
-          run: |
-            ls -lrt
-            cat README.md  
-        # - name: list of files
-        #   run: ls
-          
-        # - name: read file
-        #   run: cat README.md
+    deploy_job:
+           runs-on: ubuntu-latest
+           steps:
+             - name: read file
+               run: cat ascii_art.txt
+
+                   
