@@ -10,5 +10,5 @@ jobs:
         - name: welcome message
           run: echo "my first git hib action job"
 
-        - name: list of files
+        - name: list of file
           run: ls
