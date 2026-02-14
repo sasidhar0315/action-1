@@ -8,7 +8,11 @@ jobs:
         steps:
         - name: welcome message
           run: echo "my first git hib action job"
+          
+        - name: checkout code
+          uses: actions/checkout@v4
 
+        
         - name: list of files
           run: ls
           
