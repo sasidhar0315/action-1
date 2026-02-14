@@ -10,7 +10,6 @@ env:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,7 +26,6 @@ jobs:
         
         run: |
           echo "docker push $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest"
-          sleep 6000
 
   deploy:
     needs: docker
