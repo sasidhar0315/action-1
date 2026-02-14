@@ -27,7 +27,7 @@ jobs:
         
         run: |
           echo "docker push $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest"
-          sleeep 6000
+          sleep 6000
 
   deploy:
     needs: docker
