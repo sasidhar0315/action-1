@@ -1,6 +1,8 @@
 name: Docker Pipeline
 
-on: push
+on: 
+  schedule:
+     - cron: '*/5 * * * *'
 
 env:
   CONTAINER_REGISTRY: docker.io
@@ -11,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Docker Build
         run: |
