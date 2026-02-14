@@ -6,7 +6,7 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
-        - name: welcome message
+        - name: welcome messages
           run: echo "my first git hib action job"
         - name: install cowsay
           run: sudo apt-get install cowsay -y
